@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Banner from '../components/Banner';
 import Cases from '../components/Cases';
 import IntroOverlay from '../components/IntroOverlay';
-import useLayoutEffect from '../dist/use-isomorphic-layout-effect';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect } from 'react';
