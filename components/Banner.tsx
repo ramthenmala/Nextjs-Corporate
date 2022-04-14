@@ -1,17 +1,17 @@
-import Link from 'next/link';
 import { IconArrow } from './IconPack';
+import Link from 'next/link';
 
 const Banner = () => {
   return (
     <section className="h-[50vh] backdrop-blue-100 bg-white pt-[120px]">
       <div className="container mx-auto max-w-5xl ">
         <div className="flex flex-col ">
-          <h2 className="text-2xl sm:text-4xl z-10 font-bold mix-blend-difference text-white">
-            <div className="h-[56px] overflow-hidden relative">
+          <h2 className="index-heading overflow-hidden text-2xl sm:text-4xl z-10 font-bold mix-blend-difference text-white">
+            <div className="h-[56px] relative">
               <span>Creating unique brands is</span>
             </div>
           </h2>
-          <h2 className="text-2xl sm:text-4xl font-bold mix-blend-difference text-white">
+          <h2 className="index-heading overflow-hidden text-2xl sm:text-4xl z-10 font-bold mix-blend-difference text-white">
             <div className="mb-2 h-[56px] overflow-hidden relative">
               <span className="absolute">what we do.</span>
             </div>

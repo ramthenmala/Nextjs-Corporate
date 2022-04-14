@@ -16,7 +16,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className="font-Josefin">
+        <body className="font-Josefin invisible bg-black">
           <Main />
           <NextScript />
         </body>

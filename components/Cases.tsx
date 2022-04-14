@@ -25,7 +25,7 @@ const caseStudies = [
 const Cases = () => {
   return (
     <section className="h-[50vh]">
-      <div className=" sm:visible absolute bottom-0 w-full sm:flex justify-between items-center z-10 box-border p-8">
+      <div className="z-10 sm:visible absolute bottom-0 w-full sm:flex justify-between items-center box-border p-8">
         <div className="disabled w-4 h-4 sm:w-5 sm:h-5 lg:w-10 lg:h-10 border-2 rounded-full items-center flex justify-center bg-black/[0.6] border-black text-white cursor-pointer ">
           <IconPrevArrow />
         </div>
@@ -37,7 +37,7 @@ const Cases = () => {
         <div className="grid sm:grid-cols-3 ">
           {caseStudies?.map((caseItem) => (
             <div
-              className="relative h-[50vh] bg-black cursor-pointer group"
+              className="relative h-[50vh] bg-black cursor-pointer group "
               key={caseItem.id}
             >
               <div className="absolute right-10 top-0 bottom-0 left-0 z-10 p-12">
@@ -52,6 +52,7 @@ const Cases = () => {
                   alt={caseItem.title}
                   objectFit="cover"
                   layout="fill"
+                  className="case-image"
                 />
               </div>
             </div>
