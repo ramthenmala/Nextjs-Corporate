@@ -5,57 +5,65 @@ import Cases from '../components/Cases';
 import IntroOverlay from '../components/IntroOverlay';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useEffect } from 'react';
-
+import { useEffect, useState } from 'react';
+const handleAnimation = (onCompleteAnimation) => {
+  gsap.to('body', { duration: 0, css: { visibility: 'visible' } });
+  // timeline
+  const tl = gsap.timeline();
+  tl.from(`.index-heading`, {
+    duration: 1,
+    opacity: 0,
+    ease: 'power4.out',
+    delay: 1,
+    y: 100,
+    skewY: 7,
+    stagger: {
+      amount: 0.3,
+    },
+  })
+    .to('.overlay-top', {
+      height: 0,
+      duration: 1.6,
+      ease: 'expo.inOut',
+      stagger: 0.4,
+    })
+    .to('.overlay-bottom', {
+      width: 0,
+      duration: 1.6,
+      delay: -0.8,
+      ease: 'expo.inOut',
+      stagger: {
+        amount: 0.4,
+      },
+    })
+    .to('.intro-overlay', {
+      duration: 0,
+      css: {
+        display: 'none',
+      },
+    })
+    .from('.case-image', {
+      duration: 1.6,
+      scale: 1.4,
+      ease: 'expo.inOut',
+      delay: -2,
+      stagger: {
+        amount: 0.4,
+      },
+      onComplete: onCompleteAnimation,
+    });
+};
 const Home: NextPage = () => {
+  const [completeAnimation, completeAnimationSet] = useState(false);
+  const onCompleteAnimation = () => {
+    completeAnimationSet(true);
+  };
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
     }
-    gsap.to('body', 0, { css: { visibility: 'visible' } });
-    // timeline
-    const tl = gsap.timeline();
-    tl.from(`.index-heading`, {
-      duration: 1,
-      opacity: 0,
-      ease: 'power4.out',
-      delay: 1,
-      y: 100,
-      skewY: 7,
-      stagger: {
-        amount: 0.3,
-      },
-    })
-      .to('.overlay-top', {
-        height: 0,
-        duration: 1.6,
-        ease: 'expo.inOut',
-        stagger: 0.4,
-      })
-      .to('.overlay-bottom', {
-        width: 0,
-        duration: 1.6,
-        delay: -0.8,
-        ease: 'expo.inOut',
-        stagger: {
-          amount: 0.4,
-        },
-      })
-      .to('.intro-overlay', {
-        duration: 0,
-        css: {
-          display: 'none',
-        },
-      })
-      .from('.case-image', {
-        duration: 1.6,
-        scale: 1.4,
-        ease: 'expo.inOut',
-        delay: -2,
-        stagger: {
-          amount: 0.4,
-        },
-      });
+    handleAnimation(onCompleteAnimation);
   }, []);
 
   return (
@@ -67,7 +75,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <IntroOverlay />
+        {completeAnimation === false ? <IntroOverlay /> : null}
         <Banner />
         <Cases />
       </main>
