@@ -6,6 +6,7 @@ import IntroOverlay from '../components/IntroOverlay';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect, useState } from 'react';
+
 const handleAnimation = (onCompleteAnimation) => {
   gsap.to('body', { duration: 0, css: { visibility: 'visible' } });
   // timeline
