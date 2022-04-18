@@ -6,9 +6,10 @@ import FullMenu from '../components/FullMenu';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <FullMenu />
       <Header />
       <Component {...pageProps} />
+
+      <FullMenu />
     </>
   );
 }
