@@ -7,7 +7,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect, useState } from 'react';
 
-const handleAnimation = (onCompleteAnimation) => {
+const handleAnimation = (onCompleteAnimation: () => void): void => {
   // timeline
   const tl = gsap.timeline();
   tl.from(`.index-heading`, {
@@ -54,14 +54,16 @@ const handleAnimation = (onCompleteAnimation) => {
     });
 };
 
-function debounce(fn, ms) {
-  let timer;
+function debounce(fn: () => void, ms: number | undefined) {
+  var timer: null | ReturnType<typeof setTimeout> = null;
   return () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      timer = null;
+    timer = setTimeout(function () {
       fn.apply(this, arguments);
     }, ms);
+
+    if (timer) {
+      clearTimeout(timer);
+    }
   };
 }
 

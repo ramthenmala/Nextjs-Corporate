@@ -37,9 +37,9 @@ const FullMenu = () => {
             ))}
           </div>
 
-          <div className="">
+          <div>
             <h3 className="text-xl mb-6">Contact</h3>
-            <div className="flex justify-between grid grid-cols-1 md:grid-cols-2">
+            <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="flex flex-col">
                 <div className="flex flex-col mb-6">
                   <h4 className="font-normal text-2xl mb-2">Email</h4>
